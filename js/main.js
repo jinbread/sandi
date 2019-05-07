@@ -1,4 +1,16 @@
 
+var elem = document.getElementById('touchui');
+var params = {width: 200, height: 200};
+var two = new Two(params).appendTo(elem);
+
+var circle = two.makeCircle(100, 100, 100);
+
+circle.fill = "#efc368"
+circle.noStroke();
+
+
+
+
 var reqAnimationFrame = (function () {
     return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
         window.setTimeout(callback, 1000 / 60);
@@ -59,6 +71,8 @@ function updateElementTransform() {
     touchui.style.mozTransform = value;
     touchui.style.transform = value;
     ticking = false;
+
+    two.update();
 }
 
 function requestElementUpdate() {
@@ -94,14 +108,3 @@ function onPan(ev) {
 }
 
 resetElement();
-
-var elem = document.getElementById('touchui');
-var params = {width: 200, height: 200};
-var two = new Two(params).appendTo(elem);
-
-var circle = two.makeCircle(100, 100, 100);
-
-circle.fill = "#efc368"
-circle.noStroke();
-
-two.update();
