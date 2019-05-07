@@ -3,38 +3,20 @@ var myElement = document.getElementById('myElement');
 
 var mc = new Hammer.Manager(myElement);
 
-// create a pinch and rotate recognizer
-// these require 2 pointers
-var pinch = new Hammer.Pinch();
-var rotate = new Hammer.Rotate();
+mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
+mc.on("rotatestart rotatemove", onRotate);
 
-// we want to detect both the same time
-pinch.recognizeWith(rotate);
+var initAngle = 0;
+function onRotate(ev) {
+    if(ev.type == 'rotatestart') {
+        initAngle = transform.angle || 0;
+    }
 
-// add to the Manager
-mc.add([pinch, rotate]);
+    myElement.className = '';
+    transform.rz = 1;
+    transform.angle = initAngle + ev.rotation;
 
-var angle = 0
-var uipositionX = 0
-var uipositionY = 0
-
-mc.on("pinch rotate", function(event) {
-    myElement.textContent = event.angle;
-    angle = event.angle;
-    uipositionX = event.center.x
-    uipositionX = event.center.y
-});
-
-// function setup() {
-//     createCanvas(1112, 400);
-// }
-
-
-// function draw() {
-//     angleMode(DEGREES);
-//     translate(width / 2, height / 2);
-//     push();
-//     rotate(angle);
-//     rect(-100, -100, 200, 200);
-// }
-
+    logEvent(ev);
+    requestElementUpdate();
+}
