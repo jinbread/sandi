@@ -31,8 +31,10 @@ function setup() {
 
 
 function draw() {
+    angleMode(DEGREES);
     translate(width / 2, height / 2);
-    rotateZ(angle);
+    push();
+    rotate(angle);
     rect(100, 100, 100, 100);
 }
 
