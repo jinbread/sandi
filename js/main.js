@@ -48,7 +48,7 @@ mc.on("pinch rotate", function(event) {
     angle = event.angle;
     uipositionX = event.center.x
     uipositionX = event.center.y
-    circle.rotation = angle;
+    rect.rotation = angle;
     two.update();
 });
 
