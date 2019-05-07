@@ -4,11 +4,12 @@ var params = {width: 200, height: 200};
 var two = new Two(params).appendTo(elem);
 
 var circle = two.makeCircle(100, 100, 100);
-
 circle.fill = "#efc368"
 circle.noStroke();
 
-
+var line = two.makeLine(0, 100, 200, 100);
+line.stroke = "#000000";
+// line.linewidth = 5;
 
 
 var reqAnimationFrame = (function () {
