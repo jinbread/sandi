@@ -20,7 +20,7 @@ var uipositionY = 0
 
 mc.on("pinch rotate", function(event) {
     // myElement.textContent = event.center.x;
-    angle = event.angle * Math.PI / 180;
+    angle = event.angle;
     uipositionX = event.center.x
     uipositionX = event.center.y
 });
@@ -32,7 +32,7 @@ function setup() {
 
 function draw() {
     translate(width / 2, height / 2);
-    rotate(angle);
-    rect(uipositionX, uipositionY, 100, 100);
+    rotateZ(angle);
+    rect(100, 100, 100, 100);
 }
 
