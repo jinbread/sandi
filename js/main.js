@@ -26,7 +26,7 @@ var two = new Two(params).appendTo(elem);
 
 // two has convenience methods to create shapes.
 var circle = two.makeCircle(72, 100, 50);
-var rect = two.makeRectangle(213, 100, 100, 100);
+var rect = two.makeRectangle(213, 100, 200, 200);
 
 // The object returned has many stylable properties:
 circle.fill = '#FF8000';
@@ -48,7 +48,7 @@ mc.on("pinch rotate", function(event) {
     angle = event.angle;
     uipositionX = event.center.x
     uipositionX = event.center.y
-    rect.rotation = angle;
+    rect.rotation = angle * Math.PI / 180;
     two.update();
 });
 
