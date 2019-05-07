@@ -37,7 +37,7 @@ function logEvent(ev) {
 function resetElement() {
     touchui.className = 'animate';
     transform = {
-        translate: { x: START_X, y: START_Y },
+        // translate: { x: START_X, y: START_Y },
         scale: 1,
         angle: 0,
         rx: 0,
