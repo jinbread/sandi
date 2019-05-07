@@ -85,8 +85,8 @@ function onRotate(ev) {
 function onPan(ev) {
     el.className = '';
     transform.translate = {
-        x: ev.center.x,
-        y: ev.center.y
+        x: ev.center.x - 100,
+        y: ev.center.y - 100
     };
 
     logEvent(ev);
