@@ -13,8 +13,19 @@ pinch.recognizeWith(rotate);
 // add to the Manager
 mc.add([pinch, rotate]);
 
+var angle = 0
 
 mc.on("pinch rotate", function(event) {
     myElement.textContent += event.angle +" ";
-    
+    angle = event.angle
 });
+
+function setup() {
+    createCanvas(640, 480);
+}
+
+function draw() {
+    translate(width / 2, height / 2);
+    rotate(angle);
+    rect(30, 20, 55, 55);
+}
