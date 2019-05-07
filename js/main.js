@@ -26,7 +26,7 @@ mc.on("rotatestart rotatemove", onRotate);
 
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
-        // resetElement();
+        resetElement();
     }
 });
 
@@ -75,7 +75,7 @@ function onRotate(ev) {
     }
 
     el.className = '';
-    transform.rz = 1;
+    // transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
 
     logEvent(ev);
