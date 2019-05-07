@@ -26,7 +26,7 @@ mc.on("rotatestart rotatemove", onRotate);
 
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
-        resetElement();
+        // resetElement();
     }
 });
 
