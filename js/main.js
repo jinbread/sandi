@@ -156,4 +156,4 @@ function onRotate(ev) {
 //     requestElementUpdate();
 // }
 
-resetElement();
+// resetElement();
