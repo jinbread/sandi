@@ -77,7 +77,7 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = ev.rotation;
-
+    touchui.textContent = ev.rotation;
     logEvent(ev);
     requestElementUpdate();
 }
