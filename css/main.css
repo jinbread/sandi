@@ -299,3 +299,8 @@ textarea {
     text-align: center;
     font: 30px/300px Helvetica, Arial, sans-serif;
   }
+
+#hitarea {
+    height: 200px;
+    background: green;
+}

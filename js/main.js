@@ -1,5 +1,5 @@
 
-var myElement = document.getElementById('myElement');
+var myElement = document.querySelector("#hitarea");
 
 var mc = new Hammer.Manager(myElement);
 
