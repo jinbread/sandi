@@ -39,7 +39,10 @@ function resetElement() {
     transform = {
         translate: { x: START_X, y: START_Y },
         scale: 1,
-        angle: 0
+        angle: 0,
+        rx: 0,
+        ry: 0,
+        rz: 0
     };
     requestElementUpdate();
 }
@@ -47,7 +50,8 @@ function resetElement() {
 function updateElementTransform() {
     var value = [
         'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
-        'scale(' + transform.scale + ', ' + transform.scale + ')'
+        'scale(' + transform.scale + ', ' + transform.scale + ')',
+        'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
     ];
 
     value = value.join(" ");
@@ -81,8 +85,8 @@ function onRotate(ev) {
 function onPan(ev) {
     el.className = '';
     transform.translate = {
-        x: START_X + ev.deltaX,
-        y: START_Y + ev.deltaY
+        x: ev.center.x,
+        y: ev.center.y
     };
 
     logEvent(ev);
