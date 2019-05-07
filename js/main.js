@@ -26,7 +26,7 @@ mc.on("pinch rotate", function(event) {
 });
 
 function setup() {
-    createCanvas(640, 480);
+    createCanvas(1112, 400);
 }
 
 
@@ -35,6 +35,6 @@ function draw() {
     translate(width / 2, height / 2);
     push();
     rotate(angle);
-    rect(-50, -50, 100, 100);
+    rect(-10, -10, 200, 200);
 }
 
