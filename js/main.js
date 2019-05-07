@@ -19,24 +19,6 @@ var uipositionX = 0
 var uipositionY = 0
 
 
-mc.on("pinch rotate", function(event) {
-    // myElement.textContent = event.center.x;
-    angle = event.angle;
-    uipositionX = event.center.x
-    uipositionX = event.center.y
-});
-
-// function setup() {
-//     createCanvas(640, 480);
-// }
-
-
-// function draw() {
-//     translate(width / 2, height / 2);
-//     rotate(angle);
-//     rect(uipositionX, uipositionY, 55, 55);
-// }
-
 // Make an instance of two and place it on the page.
 var elem = document.getElementById('myElement');
 var params = { width: 285, height: 200 };
@@ -50,13 +32,34 @@ var rect = two.makeRectangle(213, 100, 100, 100);
 circle.fill = '#FF8000';
 circle.stroke = 'orangered'; // Accepts all valid css color
 circle.linewidth = 5;
-circle.rotation = angle;
+
 
 rect.fill = 'rgb(0, 200, 255)';
 rect.opacity = 0.75;
 rect.noStroke();
-rect.rotation = angle;
+
 
 // Don't forget to tell two to render everything
 // to the screen
 two.update();
+
+mc.on("pinch rotate", function(event) {
+    // myElement.textContent = event.center.x;
+    angle = event.angle;
+    uipositionX = event.center.x
+    uipositionX = event.center.y
+    circle.rotation = angle;
+    two.update();
+});
+
+// function setup() {
+//     createCanvas(640, 480);
+// }
+
+
+// function draw() {
+//     translate(width / 2, height / 2);
+//     rotate(angle);
+//     rect(uipositionX, uipositionY, 55, 55);
+// }
+
