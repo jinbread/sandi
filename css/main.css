@@ -295,12 +295,18 @@ textarea {
 
 #myElement {
     background: silver;
-    height: 440px;
+    height: 800px;
     text-align: center;
     font: 30px/300px Helvetica, Arial, sans-serif;
   }
 
 #hitarea {
+    height: 100%;
+    width: 100%;
+    background: blue;
+}
+
+#touchui {
     height: 200px;
     width: 200px;
     background: green;

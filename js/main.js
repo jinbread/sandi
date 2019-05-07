@@ -7,9 +7,10 @@ var reqAnimationFrame = (function () {
 
 var screen = document.querySelector("#myElement");
 var el = document.querySelector("#hitarea");
+var touchui = document.querySelector("#touchui ");
 
-var START_X = Math.round((screen.offsetWidth - el.offsetWidth) / 2);
-var START_Y = Math.round((screen.offsetHeight - el.offsetHeight) / 2);
+var START_X = Math.round((screen.offsetWidth - touchui.offsetWidth) / 2);
+var START_Y = Math.round((screen.offsetHeight - touchui.offsetHeight) / 2);
 
 var ticking = false;
 var transform;
@@ -33,7 +34,7 @@ function logEvent(ev) {
 }
 
 function resetElement() {
-    el.className = 'animate';
+    touchui.className = 'animate';
     transform = {
         translate: { x: START_X, y: START_Y },
         scale: 1,
@@ -53,9 +54,9 @@ function updateElementTransform() {
     ];
 
     value = value.join(" ");
-    el.style.webkitTransform = value;
-    el.style.mozTransform = value;
-    el.style.transform = value;
+    touchui.style.webkitTransform = value;
+    touchui.style.mozTransform = value;
+    touchui.style.transform = value;
     ticking = false;
 }
 
