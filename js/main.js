@@ -94,3 +94,14 @@ function onPan(ev) {
 }
 
 resetElement();
+
+var elem = document.getElementById('touchui');
+var params = {width: 200, height: 200};
+var two = new Two(params).appendTo(elem);
+
+var circle = two.makeCircle(100, 100, 100);
+
+circle.fill = "#efc368"
+circle.noStroke();
+
+two.update();

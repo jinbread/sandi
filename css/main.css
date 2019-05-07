@@ -297,17 +297,17 @@ textarea {
     background: silver;
     height: 800px;
     text-align: center;
-    font: 30px/300px Helvetica, Arial, sans-serif;
+    font: Helvetica, Arial, sans-serif;
   }
 
 #hitarea {
     height: 100%;
     width: 100%;
-    background: blue;
+    background: #e37988;
 }
 
 #touchui {
     height: 200px;
     width: 200px;
-    background: green;
+    margin: 0;
 }
