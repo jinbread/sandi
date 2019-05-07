@@ -17,21 +17,21 @@ var timer;
 
 var mc = new Hammer.Manager(el);
 
-mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+// mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
 
-mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
+// mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
-mc.add(new Hammer.Pinch({ threshold: 0 })).recognizeWith([mc.get('pan'), mc.get('rotate')]);
+// mc.add(new Hammer.Pinch({ threshold: 0 })).recognizeWith([mc.get('pan'), mc.get('rotate')]);
 
-mc.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
-mc.add(new Hammer.Tap());
+// mc.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+// mc.add(new Hammer.Tap());
 
-mc.on("panstart panmove", onPan);
+// mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
-mc.on("pinchstart pinchmove", onPinch);
-mc.on("swipe", onSwipe);
-mc.on("tap", onTap);
-mc.on("doubletap", onDoubleTap);
+// mc.on("pinchstart pinchmove", onPinch);
+// mc.on("swipe", onSwipe);
+// mc.on("tap", onTap);
+// mc.on("doubletap", onDoubleTap);
 
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
@@ -77,29 +77,29 @@ function requestElementUpdate() {
     }
 }
 
-function onPan(ev) {
-    el.className = '';
-    transform.translate = {
-        x: START_X + ev.deltaX,
-        y: START_Y + ev.deltaY
-    };
+// function onPan(ev) {
+//     el.className = '';
+//     transform.translate = {
+//         x: START_X + ev.deltaX,
+//         y: START_Y + ev.deltaY
+//     };
 
-    logEvent(ev);
-    requestElementUpdate();
-}
+//     logEvent(ev);
+//     requestElementUpdate();
+// }
 
-var initScale = 1;
-function onPinch(ev) {
-    if(ev.type == 'pinchstart') {
-        initScale = transform.scale || 1;
-    }
+// var initScale = 1;
+// function onPinch(ev) {
+//     if(ev.type == 'pinchstart') {
+//         initScale = transform.scale || 1;
+//     }
 
-    el.className = '';
-    transform.scale = initScale * ev.scale;
+//     el.className = '';
+//     transform.scale = initScale * ev.scale;
 
-    logEvent(ev);
-    requestElementUpdate();
-}
+//     logEvent(ev);
+//     requestElementUpdate();
+// }
 
 var initAngle = 0;
 function onRotate(ev) {
@@ -115,45 +115,45 @@ function onRotate(ev) {
     requestElementUpdate();
 }
 
-function onSwipe(ev) {
-    var angle = 50;
-    transform.ry = (ev.direction & Hammer.DIRECTION_HORIZONTAL) ? 1 : 0;
-    transform.rx = (ev.direction & Hammer.DIRECTION_VERTICAL) ? 1 : 0;
-    transform.angle = (ev.direction & (Hammer.DIRECTION_RIGHT | Hammer.DIRECTION_UP)) ? angle : -angle;
+// function onSwipe(ev) {
+//     var angle = 50;
+//     transform.ry = (ev.direction & Hammer.DIRECTION_HORIZONTAL) ? 1 : 0;
+//     transform.rx = (ev.direction & Hammer.DIRECTION_VERTICAL) ? 1 : 0;
+//     transform.angle = (ev.direction & (Hammer.DIRECTION_RIGHT | Hammer.DIRECTION_UP)) ? angle : -angle;
 
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-        resetElement();
-    }, 300);
+//     clearTimeout(timer);
+//     timer = setTimeout(function () {
+//         resetElement();
+//     }, 300);
 
-    logEvent(ev);
-    requestElementUpdate();
-}
+//     logEvent(ev);
+//     requestElementUpdate();
+// }
 
-function onTap(ev) {
-    transform.rx = 1;
-    transform.angle = 25;
+// function onTap(ev) {
+//     transform.rx = 1;
+//     transform.angle = 25;
 
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-        resetElement();
-    }, 200);
+//     clearTimeout(timer);
+//     timer = setTimeout(function () {
+//         resetElement();
+//     }, 200);
 
-    logEvent(ev);
-    requestElementUpdate();
-}
+//     logEvent(ev);
+//     requestElementUpdate();
+// }
 
-function onDoubleTap(ev) {
-    transform.rx = 1;
-    transform.angle = 80;
+// function onDoubleTap(ev) {
+//     transform.rx = 1;
+//     transform.angle = 80;
 
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-        resetElement();
-    }, 500);
+//     clearTimeout(timer);
+//     timer = setTimeout(function () {
+//         resetElement();
+//     }, 500);
 
-    logEvent(ev);
-    requestElementUpdate();
-}
+//     logEvent(ev);
+//     requestElementUpdate();
+// }
 
-resetElement();
+// resetElement();
