@@ -35,6 +35,6 @@ function draw() {
     translate(width / 2, height / 2);
     push();
     rotate(angle);
-    rect(-10, -10, 200, 200);
+    rect(-100, -100, 200, 200);
 }
 
