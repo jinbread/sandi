@@ -8,3 +8,6 @@ var mc = new Hammer(myElement);
 mc.on("panleft panright tap press", function(ev) {
     myElement.textContent = ev.type +" gesture detected.";
 });
+
+mc.get('pinch').set({ enable: true });
+mc.get('rotate').set({ enable: true });
