@@ -17,7 +17,7 @@ var timer;
 
 var mc = new Hammer.Manager(el);
 
-// mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
 
 // mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
@@ -156,4 +156,4 @@ function onRotate(ev) {
 //     requestElementUpdate();
 // }
 
-// resetElement();
+resetElement();
