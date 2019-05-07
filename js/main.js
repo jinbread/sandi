@@ -19,22 +19,22 @@ var uipositionX = 0
 var uipositionY = 0
 
 mc.on("pinch rotate", function(event) {
-    // myElement.textContent = event.center.x;
+    myElement.textContent = event.angle;
     angle = event.angle;
     uipositionX = event.center.x
     uipositionX = event.center.y
 });
 
-function setup() {
-    createCanvas(1112, 400);
-}
+// function setup() {
+//     createCanvas(1112, 400);
+// }
 
 
-function draw() {
-    angleMode(DEGREES);
-    translate(width / 2, height / 2);
-    push();
-    rotate(angle);
-    rect(-100, -100, 200, 200);
-}
+// function draw() {
+//     angleMode(DEGREES);
+//     translate(width / 2, height / 2);
+//     push();
+//     rotate(angle);
+//     rect(-100, -100, 200, 200);
+// }
 
