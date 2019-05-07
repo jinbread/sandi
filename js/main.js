@@ -6,6 +6,7 @@ var two = new Two(params).appendTo(elem);
 var circle = two.makeCircle(100, 100, 100);
 circle.fill = "#efc368"
 circle.noStroke();
+circle.opacity = 0;
 
 var line = two.makeLine(0, 100, 200, 100);
 line.stroke = "#000000";
@@ -40,7 +41,9 @@ mc.on("rotatestart rotatemove", onRotate);
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
+        circle.opacity = 0
     }
+    
 });
 
 function logEvent(ev) {
@@ -92,7 +95,12 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = ev.rotation;
+    transform.translate = {
+        x: ev.center.x - 100,
+        y: ev.center.y - 100
+    };
     // el.textContent = ev.rotation;
+    circle.opacity = 1
     logEvent(ev);
     requestElementUpdate();
 }
@@ -103,7 +111,7 @@ function onPan(ev) {
         x: ev.center.x - 100,
         y: ev.center.y - 100
     };
-
+    circle.opacity = 1
     logEvent(ev);
     requestElementUpdate();
 }
