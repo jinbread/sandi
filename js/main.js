@@ -20,7 +20,7 @@ var uipositionY = 0
 
 
 mc.on("pinch rotate", function(event) {
-    myElement.textContent = event.center.x;
+    // myElement.textContent = event.center.x;
     angle = event.angle;
     uipositionX = event.center.x
     uipositionX = event.center.y
