@@ -14,10 +14,12 @@ pinch.recognizeWith(rotate);
 mc.add([pinch, rotate]);
 
 var angle = 0
+var uiposition = 0
 
 mc.on("pinch rotate", function(event) {
-    myElement.textContent += event.angle +" ";
-    angle = event.angle
+    myElement.textContent = event.center;
+    angle = event.angle;
+    console.log(event.center);
 });
 
 function setup() {
