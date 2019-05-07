@@ -14,6 +14,7 @@ pinch.recognizeWith(rotate);
 mc.add([pinch, rotate]);
 
 
-mc.on("pinch rotate", function(ev) {
-    myElement.textContent += ev.type +" ";
+mc.on("pinch rotate", function(event) {
+    myElement.textContent += event.angle +" ";
+    
 });
