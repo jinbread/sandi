@@ -36,10 +36,10 @@ var elemelem = document.getElementById('touchui');
 var paramsparams = {width: 400, height: 400};
 var twotwo = new Two(paramsparams).appendTo(elemelem);
 
-var circlecircle = twotwo.makeCircle(200, 60, 10);
+var circlecircle = twotwo.makeCircle(200, 55, 15);
 circlecircle.fill = "lightgray"
 circlecircle.noStroke();
-circlecircle.opacity = 0;
+circlecircle.opacity = 1;
 
 // TOUCH
 
@@ -76,9 +76,10 @@ mc.on("hammer.input", function(ev) {
         circle2.opacity = 0;
         circle3.opacity = 0;
         circle4.opacity = 0;
-        circlecircle.opacity = 0
+        circlecircle.opacity = 1;
         line.opacity = 0;
         two.update();
+        twotwo.update();
     }
     
 });
@@ -102,8 +103,7 @@ function resetElement() {
 
 function updateElementTransform() {
     var value = [
-        'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)',
-        'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)'
+        'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
     ];
 
     var bgvalue = [
@@ -124,6 +124,7 @@ function updateElementTransform() {
     ticking = false;
 
     two.update();
+    twotwo.update();
 }
 
 function requestElementUpdate() {
