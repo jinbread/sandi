@@ -162,7 +162,7 @@ function onRotate(ev) {
     transform.angle = initAngle + ev.rotation;
     
     
-    if (transform.angle < 40) {
+    if (transform.angle < 40 && transform.angle > - 40) {
         animationB.play();
         animationA.pause();
         animationD.play();
