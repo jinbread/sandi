@@ -157,6 +157,11 @@ function onRotate(ev) {
         .add({
             targets: '#touchui',
             scale: 1,
+        })
+        .add({
+            targets: '#touchui',
+            opacity: 0,
+            loop: false,
         });  
     }
     transform.translate = {
