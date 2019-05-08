@@ -4,22 +4,22 @@ var params = {width: 400, height: 400};
 var two = new Two(params).appendTo(elem);
 
 var circle = two.makeCircle(200, 200, 100);
-circle.fill = "#efc368"
+circle.fill = "#FFDC00"
 circle.noStroke();
 circle.opacity = 0;
 
 var circle2 = two.makeCircle(200, 60, 10);
-circle2.fill = "#efc368"
+circle2.fill = "#FFDC00"
 circle2.noStroke();
 circle2.opacity = 0;
 
 var circle3 = two.makeCircle(340, 200, 10);
-circle3.fill = "#efc368"
+circle3.fill = "#FFDC00"
 circle3.noStroke();
 circle3.opacity = 0;
 
 var circle4 = two.makeCircle(292, 108, 10);
-circle4.fill = "#efc368"
+circle4.fill = "#FFDC00"
 circle4.noStroke();
 circle4.opacity = 0;
 
