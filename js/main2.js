@@ -1,3 +1,47 @@
+// ANIMATION
+
+var elem = document.getElementById('containerui');
+var params = {width: 400, height: 400};
+var two = new Two(params).appendTo(elem);
+
+var circle = two.makeCircle(200, 200, 100);
+circle.fill = "#FFDC00"
+circle.noStroke();
+circle.opacity = 0;
+
+var circle2 = two.makeCircle(200, 60, 10);
+circle2.fill = "#FFDC00"
+circle2.noStroke();
+circle2.opacity = 0;
+
+var circle3 = two.makeCircle(340, 200, 10);
+circle3.fill = "#FFDC00"
+circle3.noStroke();
+circle3.opacity = 0;
+
+var circle4 = two.makeCircle(292, 108, 10);
+circle4.fill = "#FFDC00"
+circle4.noStroke();
+circle4.opacity = 0;
+
+
+
+var line = two.makeLine(0, 200, 400, 200);
+line.stroke = "#000000";
+line.opacity = 0;
+// line.linewidth = 5;
+
+
+var elemelem = document.getElementById('touchui');
+var paramsparams = {width: 400, height: 400};
+var twotwo = new Two(paramsparams).appendTo(elemelem);
+
+var circlecircle = twotwo.makeCircle(200, 60, 10);
+circlecircle.stroke = "lightgray";
+circlecircle.linewidth = 4;
+circlecircle.noFill();
+circlecircle.opacity = 0;
+
 // TOUCH
 
 var reqAnimationFrame = (function () {
@@ -24,11 +68,33 @@ mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
+mc.on("rotatestart panstart", initAuth);
+
+function initAuth(ev) {
+    circle.scale = 1;
+    
+    two.bind('update', function(frameCount){
+        if(circle.scale < 1.2){
+            circle.scale += 0.001;
+            console.log(frameCount)
+        } 
+    }).play();
+}
 
 
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
+        circle.opacity = 0;
+        circle2.opacity = 0;
+        circle3.opacity = 0;
+        circle4.opacity = 0;
+        circlecircle.opacity = 0;
+        line.opacity = 0;
+        circle.scale = 1;
+        
+        two.update();
+        twotwo.update();
     }
     
 });
@@ -72,6 +138,9 @@ function updateElementTransform() {
     containerui.style.transform = bgvalue;
 
     ticking = false;
+
+    two.update();
+    twotwo.update();
 }
 
 function requestElementUpdate() {
@@ -94,7 +163,11 @@ function onRotate(ev) {
     transform.rz = 1;
     transform.angle = ev.rotation;
     // el.textContent = ev.rotation;
-
+    circle.opacity = 1
+    circle2.opacity = 1
+    circle3.opacity = 1
+    circle4.opacity = 1
+    circlecircle.opacity = 1
     logEvent(ev);
     requestElementUpdate();
 }
@@ -105,6 +178,11 @@ function onPan(ev) {
         x: ev.center.x - 200,
         y: ev.center.y - 200
     };
+    circle.opacity = 1
+    circle2.opacity = 1
+    circle3.opacity = 1
+    circle4.opacity = 1
+    circlecircle.opacity = 1
     // containerui.innerText = ev.center.x + " " + ev.center.y
 
     logEvent(ev);
