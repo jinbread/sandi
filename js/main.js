@@ -165,13 +165,13 @@ function onRotate(ev) {
     if (ev.rotation < 30) {
         animationB.play();
         animationA.pause();
-        animationC.play();
-        animationD.pause();
+        animationD.play();
+        animationC.pause();
     } else {
         animationB.pause();
         animationA.play();
-        animationC.pause();
-        animationD.play();
+        animationD.pause();
+        animationC.play();
     }
 
     logEvent(ev);
