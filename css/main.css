@@ -314,9 +314,18 @@ textarea {
     background: #002850;
 }
 
-#touchui {
+#containerui {
     height: 400px;
     width: 400px;
     margin: 0;
+    /* background: #b3d4fc; */
+}
+
+#touchui {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    margin: 0;
+    dis
     /* background: #b3d4fc; */
 }

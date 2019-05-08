@@ -1,12 +1,13 @@
+// ANIMATION
 
-var elem = document.getElementById('touchui');
+var elem = document.getElementById('containerui');
 var params = {width: 400, height: 400};
 var two = new Two(params).appendTo(elem);
 
 var circle = two.makeCircle(200, 200, 100);
 circle.fill = "#FFDC00"
 circle.noStroke();
-circle.opacity = 0;
+circle.opacity = 1;
 
 var circle2 = two.makeCircle(200, 60, 10);
 circle2.fill = "#FFDC00"
@@ -31,6 +32,9 @@ line.opacity = 0;
 // line.linewidth = 5;
 
 
+
+// TOUCH
+
 var reqAnimationFrame = (function () {
     return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
         window.setTimeout(callback, 1000 / 60);
@@ -39,7 +43,8 @@ var reqAnimationFrame = (function () {
 
 var screen = document.querySelector("#myElement");
 var el = document.querySelector("#hitarea");
-var touchui = document.querySelector("#touchui ");
+var containerui = document.querySelector("#containerui");
+var touchui = document.querySelector("#touchui");
 
 var START_X = Math.round((screen.offsetWidth - touchui.offsetWidth) / 2);
 var START_Y = Math.round((screen.offsetHeight - touchui.offsetHeight) / 2);
@@ -59,7 +64,7 @@ mc.on("rotatestart rotatemove", onRotate);
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
-        circle.opacity = 0;
+        circle.opacity = 1;
         circle2.opacity = 0;
         circle3.opacity = 0;
         circle4.opacity = 0;
@@ -75,6 +80,7 @@ function logEvent(ev) {
 
 function resetElement() {
     touchui.className = 'animate';
+    containerui.className = 'animate';
     transform = {
         translate: { x: START_X, y: START_Y },
         scale: 1,
@@ -88,15 +94,24 @@ function resetElement() {
 
 function updateElementTransform() {
     var value = [
-        'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
-        'scale(' + transform.scale + ', ' + transform.scale + ')',
         'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
     ];
 
+    var bgvalue = [
+        'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)'
+    ]
+
     value = value.join(" ");
+    bgvalue = bgvalue.join(" ");
+    
     touchui.style.webkitTransform = value;
     touchui.style.mozTransform = value;
     touchui.style.transform = value;
+
+    containerui.style.webkitTransform = bgvalue;
+    containerui.style.mozTransform = bgvalue;
+    containerui.style.transform = bgvalue;
+
     ticking = false;
 
     two.update();
