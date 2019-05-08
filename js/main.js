@@ -7,7 +7,7 @@ var two = new Two(params).appendTo(elem);
 var circle = two.makeCircle(200, 200, 100);
 circle.fill = "#FFDC00"
 circle.noStroke();
-circle.opacity = 1;
+circle.opacity = 0;
 
 var circle2 = two.makeCircle(200, 60, 10);
 circle2.fill = "#FFDC00"
@@ -32,6 +32,14 @@ line.opacity = 0;
 // line.linewidth = 5;
 
 
+var elemelem = document.getElementById('touchui');
+var paramsparams = {width: 400, height: 400};
+var twotwo = new Two(paramsparams).appendTo(elemelem);
+
+var circlecircle = two.makeCircle(200, 60, 10);
+circlecircle.fill = "lightgray"
+circlecircle.noStroke();
+circlecircle.opacity = 0;
 
 // TOUCH
 
@@ -64,10 +72,11 @@ mc.on("rotatestart rotatemove", onRotate);
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
-        circle.opacity = 1;
+        circle.opacity = 0;
         circle2.opacity = 0;
         circle3.opacity = 0;
         circle4.opacity = 0;
+        circlecircle.opacity = 0
         line.opacity = 0;
         two.update();
     }
@@ -142,6 +151,7 @@ function onRotate(ev) {
     circle2.opacity = 1
     circle3.opacity = 1
     circle4.opacity = 1
+    circlecircle.opacity = 1
     logEvent(ev);
     requestElementUpdate();
 }
@@ -156,6 +166,7 @@ function onPan(ev) {
     circle2.opacity = 1
     circle3.opacity = 1
     circle4.opacity = 1
+    circlecircle.opacity = 1
 
     logEvent(ev);
     requestElementUpdate();
