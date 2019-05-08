@@ -144,10 +144,6 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = ev.rotation;
-    transform.translate = {
-        x: ev.center.x - 200,
-        y: ev.center.y - 200
-    };
     // el.textContent = ev.rotation;
     circle.opacity = 1
     circle2.opacity = 1
@@ -161,8 +157,8 @@ function onRotate(ev) {
 function onPan(ev) {
     el.className = '';
     transform.translate = {
-        x: ev.center.x - 200,
-        y: ev.center.y - 200
+        x: ev.center.x,
+        y: ev.center.y
     };
     circle.opacity = 1
     circle2.opacity = 1
