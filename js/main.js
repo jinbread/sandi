@@ -70,6 +70,7 @@ var animationD = anime({
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
+        containerui.style.opacity = 0;
         animationB.play();
         animationD.play();
     }
@@ -82,6 +83,7 @@ mc.on("hammer.input", function(ev) {
       
 
     if(ev.isFirst) {
+        containerui.style.opacity = 1;
         tl
         .add({
             targets: '#touchui',
@@ -151,14 +153,9 @@ function requestElementUpdate() {
 
 
 var initAngle = 0;
-var xAngle = 0
-var yAngle = 0;
-var deltaAngle = 0;
-
 function onRotate(ev) {
     if(ev.type == 'rotatestart') {
         initAngle = 0;
-        xAngle = ev.rotation;
     }
     transform.translate = {
         x: ev.center.x - 200,
@@ -167,14 +164,9 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
-    yAngle = ev.rotation;
-
-    el.innerHTML = xAngle + " " + yAngle
-
-    deltaAngle = Math.abs(xAngle - yAngle);
     
     
-    if (deltaAngle > 30) {
+    if (transform.angle < 40 && transform.angle > - 40) {
         animationB.play();
         animationA.pause();
         animationD.play();
