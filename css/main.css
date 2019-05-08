@@ -12,12 +12,20 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-   html {
+html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    height: 100%;
 }
 
+body {
+    height: 100%;
+}
+
+#full {
+    height: 100%;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -295,13 +303,13 @@ textarea {
 
 #myElement {
     background: silver;
-    height: 800px;
+    min-height: 100%;
     text-align: center;
     font: Helvetica, Arial, sans-serif;
   }
 
 #hitarea {
-    height: 100%;
+    height: 900px;
     width: 100%;
     background: #002850;
 }
