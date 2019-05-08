@@ -18,6 +18,7 @@ var deactivate = document.querySelector("#deactivate");
 var animationA = anime({
     targets: deactivate,
     scale: .5,
+    autoplay: false,
 })
 
   // Add children
@@ -128,12 +129,14 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = ev.rotation;
-    // containerui.innerText = ev.rotation;
-    if (ev.rotation > 30) {
+    
+    
+    if (ev.rotation < 30) {
         // containerui.innerText = ev.rotation;
         animationA.play;
     } else {
         // el.innerText = ev.rotation;
+        animationA.pause;
     }
 
     logEvent(ev);
