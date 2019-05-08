@@ -151,7 +151,7 @@ function requestElementUpdate() {
 var initAngle = 0;
 function onRotate(ev) {
     if(ev.type == 'rotatestart') {
-        initAngle = transform.angle || 0;
+        initAngle = 0;
     }
     transform.translate = {
         x: ev.center.x - 200,
