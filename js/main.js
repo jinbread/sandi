@@ -141,8 +141,8 @@ function onRotate(ev) {
         initAngle = transform.angle || 0;
     }
     transform.translate = {
-        x: ev.center.x,
-        y: ev.center.y
+        x: ev.center.x - 200,
+        y: ev.center.y - 200
     };
     el.className = '';
     transform.rz = 1;
@@ -160,15 +160,15 @@ function onRotate(ev) {
 function onPan(ev) {
     el.className = '';
     transform.translate = {
-        x: ev.center.x,
-        y: ev.center.y
+        x: ev.center.x - 200,
+        y: ev.center.y - 200
     };
     circle.opacity = 1
     circle2.opacity = 1
     circle3.opacity = 1
     circle4.opacity = 1
     circlecircle.opacity = 1
-    containerui.innerText = ev.center.x + " " + ev.center.y
+    // containerui.innerText = ev.center.x + " " + ev.center.y
 
     logEvent(ev);
     requestElementUpdate();

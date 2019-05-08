@@ -312,6 +312,7 @@ textarea {
     height: 900px;
     width: 100%;
     background: #002850;
+    margin: 0;
 }
 
 #containerui {
