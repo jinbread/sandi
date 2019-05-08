@@ -28,7 +28,7 @@ var timer;
 
 var mc = new Hammer.Manager(el);
 
-mc.add(new Hammer.Pan({ threshold: 0, pointers: 2 }));
+mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
@@ -66,6 +66,13 @@ var animationD = anime({
 });
 
 
+var tl = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750,
+    loop: false,
+    opacity: 1,
+  });
+
 
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
@@ -75,15 +82,8 @@ mc.on("hammer.input", function(ev) {
         animationD.play();
     }
 
-    var tl = anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 750,
-        loop: false,
-        opacity: 1,
-      });
-      
 
-    if(ev.isFirst) {
+    if(ev.type == 'rotatestart' || ev.type == 'panstart') {
         containerui.style.opacity = 1;
         tl
         .add({
@@ -168,7 +168,7 @@ function onRotate(ev) {
     transform.angle = initAngle + ev.rotation;
     
     
-    if (transform.angle < 40 && transform.angle > - 40) {
+    if (transform.angle < 30 && transform.angle > - 30) {
         animationB.play();
         animationA.pause();
         animationD.play();
