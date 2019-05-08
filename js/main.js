@@ -16,7 +16,7 @@ var activateText = document.querySelector("#activateText");
 var deactivate = document.querySelector("#deactivate");
 
 var animationA = anime({
-    targets: deactivate,
+    targets: '#deactivate',
     scale: .5,
     autoplay: false,
 })
@@ -46,7 +46,8 @@ mc.on("hammer.input", function(ev) {
 
     var tl = anime.timeline({
         easing: 'easeOutExpo',
-        duration: 750
+        duration: 750,
+        loop: false,
       });
       
 
@@ -132,10 +133,8 @@ function onRotate(ev) {
     
     
     if (ev.rotation < 30) {
-        // containerui.innerText = ev.rotation;
         animationA.play;
     } else {
-        // el.innerText = ev.rotation;
         animationA.pause;
     }
 
