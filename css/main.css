@@ -319,7 +319,7 @@ textarea {
     height: 400px;
     width: 400px;
     margin: 0;
-    background: #b3d4fc;
+    /* background: #b3d4fc; */
 }
 
 #touchui {
