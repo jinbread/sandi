@@ -169,6 +169,8 @@ function onRotate(ev) {
     transform.angle = initAngle + ev.rotation;
     yAngle = ev.rotation;
 
+    el.innerHTML = xAngle + " " + yAngle
+
     deltaAngle = Math.abs(xAngle - yAngle);
     
     
