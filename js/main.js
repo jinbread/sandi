@@ -25,7 +25,7 @@ var timer;
 
 var mc = new Hammer.Manager(el);
 
-mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+mc.add(new Hammer.Pan({ threshold: 0, pointers: 2 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
