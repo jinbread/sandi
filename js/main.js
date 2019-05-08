@@ -151,9 +151,14 @@ function requestElementUpdate() {
 
 
 var initAngle = 0;
+var xAngle = 0
+var yAngle = 0;
+var deltaAngle = 0;
+
 function onRotate(ev) {
     if(ev.type == 'rotatestart') {
         initAngle = 0;
+        xAngle = ev.rotation;
     }
     transform.translate = {
         x: ev.center.x - 200,
@@ -162,9 +167,12 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
+    yAngle = ev.rotation;
+
+    deltaAngle = Math.abs(xAngle - yAngle);
     
     
-    if (transform.angle < 40 && transform.angle > - 40) {
+    if (deltaAngle > 30) {
         animationB.play();
         animationA.pause();
         animationD.play();
