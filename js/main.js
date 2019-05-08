@@ -64,7 +64,7 @@ var timer;
 
 var mc = new Hammer.Manager(el);
 
-mc.add(new Hammer.Pan({ threshold: 0, pointers: 2 }));
+mc.add(new Hammer.Pan({ threshold: 10, pointers: 2 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
@@ -169,7 +169,7 @@ function onPan(ev) {
     circle3.opacity = 1
     circle4.opacity = 1
     circlecircle.opacity = 1
-    containerui.textContent = ev.center.x + " " + ev.center.y
+    // containerui.textContent = ev.center.x + " " + ev.center.y
 
     logEvent(ev);
     requestElementUpdate();
