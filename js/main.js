@@ -36,10 +36,16 @@ mc.on("rotatestart rotatemove", onRotate);
 var animationA = anime({
     targets: '#deactivate',
     scale: .5,
-    loop: true,
+    loop: false,
     autoplay: false,
 });
 
+var animationB = anime({
+    targets: '#deactivate',
+    scale: 1,
+    loop: false,
+    autoplay: false,
+});
 
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
@@ -138,8 +144,10 @@ function onRotate(ev) {
     
     if (ev.rotation < 30) {
         animationA.play();
+        animationB.pause();
     } else {
         animationA.pause();
+        animationB.play();
     }
 
     logEvent(ev);
