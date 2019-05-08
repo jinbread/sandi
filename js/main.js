@@ -68,6 +68,20 @@ mc.add(new Hammer.Pan({ threshold: 0, pointers: 2 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
+mc.on("rotatestart panstart", initAuth);
+
+function initAuth(ev) {
+    circle.scale = 1;
+    
+    two.bind('update', function(frameCount){
+        if(circle.scale < 1.2){
+            circle.scale += 0.001;
+        } else {
+            circle.scale = 1;
+        }
+    }).play();
+}
+
 
 
 mc.on("hammer.input", function(ev) {
