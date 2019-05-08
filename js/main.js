@@ -11,6 +11,11 @@ var el = document.querySelector("#hitarea");
 var containerui = document.querySelector("#containerui");
 var touchui = document.querySelector("#touchui");
 
+
+
+  // Add children
+  
+
 var START_X = Math.round((screen.offsetWidth - touchui.offsetWidth) / 2);
 var START_Y = Math.round((screen.offsetHeight - touchui.offsetHeight) / 2);
 
@@ -29,6 +34,24 @@ mc.on("rotatestart rotatemove", onRotate);
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
+    }
+
+    var tl = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+      });
+      
+
+    if(ev.isFirst) {
+        tl
+        .add({
+            targets: '#touchui',
+            scale: 1.2,
+        })
+        .add({
+            targets: '#touchui',
+            scale: 1,
+        });  
     }
     
 });
@@ -112,3 +135,13 @@ function onPan(ev) {
 }
 
 resetElement();
+
+// anime({
+//     targets: '#touchui',
+//     rotate: {
+//         value: 720,
+//         duration: 1800,
+//         easing: 'easeInOutSine'
+//     }
+// });
+
