@@ -148,7 +148,7 @@ function requestElementUpdate() {
 
 
 
-// var initAngle = 0;
+var initAngle = 0;
 function onRotate(ev) {
     if(ev.type == 'rotatestart') {
         initAngle = transform.angle || 0;
@@ -159,10 +159,10 @@ function onRotate(ev) {
     };
     el.className = '';
     transform.rz = 1;
-    transform.angle = ev.rotation;
+    transform.angle = initAngle + ev.rotation;
     
     
-    if (ev.rotation < 30) {
+    if (initAngle < 40) {
         animationB.play();
         animationA.pause();
         animationD.play();
