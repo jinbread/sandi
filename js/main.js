@@ -15,7 +15,10 @@ var activate = document.querySelector("#activate");
 var activateText = document.querySelector("#activateText");
 var deactivate = document.querySelector("#deactivate");
 
-
+var animationA = anime({
+    targets: deactivate,
+    scale: .5,
+})
 
   // Add children
   
@@ -128,7 +131,7 @@ function onRotate(ev) {
     // containerui.innerText = ev.rotation;
     if (ev.rotation > 30) {
         // containerui.innerText = ev.rotation;
-
+        animationA.play;
     } else {
         // el.innerText = ev.rotation;
     }
