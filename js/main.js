@@ -15,11 +15,6 @@ var activate = document.querySelector("#activate");
 var activateText = document.querySelector("#activateText");
 var deactivate = document.querySelector("#deactivate");
 
-var animationA = anime({
-    targets: '#deactivate',
-    scale: .5,
-    autoplay: false,
-})
 
   // Add children
   
@@ -37,6 +32,13 @@ mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
+
+var animationA = anime({
+    targets: '#deactivate',
+    scale: .5,
+    loop: true,
+    autoplay: false,
+});
 
 
 mc.on("hammer.input", function(ev) {
@@ -118,6 +120,8 @@ function requestElementUpdate() {
     }
 }
 
+
+
 // var initAngle = 0;
 function onRotate(ev) {
     if(ev.type == 'rotatestart') {
@@ -133,9 +137,9 @@ function onRotate(ev) {
     
     
     if (ev.rotation < 30) {
-        animationA.play;
+        animationA.play();
     } else {
-        animationA.pause;
+        animationA.pause();
     }
 
     logEvent(ev);
