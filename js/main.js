@@ -70,6 +70,8 @@ var animationD = anime({
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
+        animationB.play();
+        animationD.play();
     }
 
     var tl = anime.timeline({
