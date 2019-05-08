@@ -38,6 +38,7 @@ var animationA = anime({
     scale: .5,
     loop: false,
     autoplay: false,
+    background: "#FFFFFF",
 });
 
 var animationB = anime({
@@ -45,6 +46,7 @@ var animationB = anime({
     scale: 1,
     loop: false,
     autoplay: false,
+    background: "#FFDC00",
 });
 
 mc.on("hammer.input", function(ev) {
@@ -143,11 +145,11 @@ function onRotate(ev) {
     
     
     if (ev.rotation < 30) {
-        animationA.play();
-        animationB.pause();
-    } else {
-        animationA.pause();
         animationB.play();
+        animationA.pause();
+    } else {
+        animationB.pause();
+        animationA.play();
     }
 
     logEvent(ev);
