@@ -92,7 +92,6 @@ function resetElement() {
     containerui.className = 'animate';
     transform = {
         translate: { x: START_X, y: START_Y },
-        scale: 1,
         angle: 0,
         rx: 0,
         ry: 0,
@@ -103,7 +102,8 @@ function resetElement() {
 
 function updateElementTransform() {
     var value = [
-        'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
+        'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)',
+        'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)'
     ];
 
     var bgvalue = [
