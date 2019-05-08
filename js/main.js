@@ -64,7 +64,7 @@ var timer;
 
 var mc = new Hammer.Manager(el);
 
-mc.add(new Hammer.Pan({ threshold: 10, pointers: 2 }));
+mc.add(new Hammer.Pan({ threshold: 0, pointers: 2 }));
 mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
 mc.on("panstart panmove", onPan);
 mc.on("rotatestart rotatemove", onRotate);
@@ -140,7 +140,10 @@ function onRotate(ev) {
     if(ev.type == 'rotatestart') {
         initAngle = transform.angle || 0;
     }
-
+    transform.translate = {
+        x: ev.center.x,
+        y: ev.center.y
+    };
     el.className = '';
     transform.rz = 1;
     transform.angle = ev.rotation;
