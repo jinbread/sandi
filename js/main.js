@@ -169,6 +169,7 @@ function onPan(ev) {
     circle3.opacity = 1
     circle4.opacity = 1
     circlecircle.opacity = 1
+    touchui.textContent = ev.center.x
 
     logEvent(ev);
     requestElementUpdate();
