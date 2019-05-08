@@ -49,6 +49,24 @@ var animationB = anime({
     background: "#FFDC00",
 });
 
+var animationC = anime({
+    targets: '#activate',
+    scale: 2,
+    loop: false,
+    autoplay: false,
+    background: "#FFDC00",
+});
+
+var animationD = anime({
+    targets: '#activate',
+    scale: 1,
+    loop: false,
+    autoplay: false,
+    background: "#FFFFFF",
+});
+
+
+
 mc.on("hammer.input", function(ev) {
     if(ev.isFinal) {
         // resetElement();
@@ -147,9 +165,13 @@ function onRotate(ev) {
     if (ev.rotation < 30) {
         animationB.play();
         animationA.pause();
+        animationC.play();
+        animationD.pause();
     } else {
         animationB.pause();
         animationA.play();
+        animationC.pause();
+        animationD.play();
     }
 
     logEvent(ev);
