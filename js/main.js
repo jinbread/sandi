@@ -36,7 +36,7 @@ var elemelem = document.getElementById('touchui');
 var paramsparams = {width: 400, height: 400};
 var twotwo = new Two(paramsparams).appendTo(elemelem);
 
-var circlecircle = two.makeCircle(200, 60, 10);
+var circlecircle = twotwo.makeCircle(200, 60, 10);
 circlecircle.fill = "lightgray"
 circlecircle.noStroke();
 circlecircle.opacity = 0;
