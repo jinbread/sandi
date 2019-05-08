@@ -70,7 +70,6 @@ var tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 750,
     loop: false,
-    opacity: 1,
   });
 
 
@@ -85,15 +84,7 @@ mc.on("hammer.input", function(ev) {
 
     if(ev.type == 'rotatestart' || ev.type == 'panstart') {
         containerui.style.opacity = 1;
-        tl
-        .add({
-            targets: '#touchui',
-            scale: 1.2,
-        })
-        .add({
-            targets: '#touchui',
-            scale: 1,
-        });  
+        
     }
     
 });
@@ -158,6 +149,15 @@ function onRotate(ev) {
     containerui.style.opacity = 1;
     if(ev.type == 'rotatestart') {
         initAngle = 0;
+        tl
+        .add({
+            targets: '#touchui',
+            scale: 1.2,
+        })
+        .add({
+            targets: '#touchui',
+            scale: 1,
+        });  
     }
     transform.translate = {
         x: ev.center.x - 200,
