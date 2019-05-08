@@ -10,6 +10,7 @@ var screen = document.querySelector("#myElement");
 var el = document.querySelector("#hitarea");
 var containerui = document.querySelector("#containerui");
 var touchui = document.querySelector("#touchui");
+var cursor = document.querySelector("#cursor");
 
 
 
@@ -62,6 +63,7 @@ function logEvent(ev) {
 
 function resetElement() {
     touchui.className = 'animate';
+    cursor.className = 'animate';
     containerui.className = 'animate';
     transform = {
         translate: { x: START_X, y: START_Y },
@@ -89,6 +91,10 @@ function updateElementTransform() {
     touchui.style.webkitTransform = value;
     touchui.style.mozTransform = value;
     touchui.style.transform = value;
+
+    cursor.style.webkitTransform = value;
+    cursor.style.mozTransform = value;
+    cursor.style.transform = value;
 
     containerui.style.webkitTransform = bgvalue;
     containerui.style.mozTransform = bgvalue;
@@ -135,13 +141,4 @@ function onPan(ev) {
 }
 
 resetElement();
-
-// anime({
-//     targets: '#touchui',
-//     rotate: {
-//         value: 720,
-//         duration: 1800,
-//         easing: 'easeInOutSine'
-//     }
-// });
 
