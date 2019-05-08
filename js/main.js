@@ -122,7 +122,7 @@ function onRotate(ev) {
     el.className = '';
     transform.rz = 1;
     transform.angle = ev.rotation;
-    containerui.textContent = ev.rotation;
+    // containerui.innerText = ev.rotation;
 
     logEvent(ev);
     requestElementUpdate();
