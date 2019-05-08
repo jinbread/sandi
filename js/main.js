@@ -168,7 +168,7 @@ function onPan(ev) {
     circle3.opacity = 1
     circle4.opacity = 1
     circlecircle.opacity = 1
-    // containerui.textContent = ev.center.x + " " + ev.center.y
+    containerui.innerText = ev.center.x + " " + ev.center.y
 
     logEvent(ev);
     requestElementUpdate();
