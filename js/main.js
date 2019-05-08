@@ -123,6 +123,11 @@ function onRotate(ev) {
     transform.rz = 1;
     transform.angle = ev.rotation;
     // containerui.innerText = ev.rotation;
+    if (ev.rotation > 30) {
+        containerui.innerText = ev.rotation;
+    } else {
+        el.innerText = ev.rotation;
+    }
 
     logEvent(ev);
     requestElementUpdate();
