@@ -74,14 +74,12 @@ function initAuth(ev) {
     circle.scale = 1;
     
     two.bind('update', function(frameCount){
-        if(circle.scale < 1.2){
+        if(circle.scale < 2){
             circle.scale += 0.001;
-        } else {
-            circle.scale = 1;
-        }
+            console.log(frameCount)
+        } 
     }).play();
 }
-
 
 
 mc.on("hammer.input", function(ev) {
