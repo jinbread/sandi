@@ -194,6 +194,7 @@ function onRotate(ev) {
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
     
+    el.textContent = ev.angle + " " + ev.rotation;
     
     if (transform.angle < 30 && transform.angle > - 30) {
         animationB.play();
