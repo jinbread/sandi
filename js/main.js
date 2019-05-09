@@ -203,9 +203,9 @@ function onRotate(ev) {
     changingAngle = ev.rotation;
     deltaAngle = changingAngle - initialAngle;
     
-    el.textContent = deltaAngle;
+    // el.textContent = deltaAngle;
     
-    if (deltaAngle < 30) {
+    if (deltaAngle < 40) {
         animationB.play();
         animationA.pause();
         animationD.play();
