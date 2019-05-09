@@ -145,10 +145,15 @@ function requestElementUpdate() {
 
 
 var initAngle = 0;
+var initialAngle = 0;
+var changingAngle = 0;
+var deltaAngle = 0;
 function onRotate(ev) {
+
     containerui.style.opacity = 1;
     if(ev.type == 'rotatestart') {
         initAngle = 0;
+        initialAngle = ev.rotation;
         tl
         .add({
             targets: '#touchui',
@@ -194,7 +199,11 @@ function onRotate(ev) {
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
     
-    el.textContent = ev.angle + " " + ev.rotation;
+
+    changingAngle = ev.rotation;
+    deltaAngle = initialAngle - changingAngle;
+    
+    el.textContent = deltaAngle;
     
     if (transform.angle < 30 && transform.angle > - 30) {
         animationB.play();
