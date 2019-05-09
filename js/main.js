@@ -39,7 +39,6 @@ var animationA = anime({
     loop: false,
     autoplay: false,
     background: "#FFFFFF",
-    translateY: -180,
 });
 
 var animationB = anime({
@@ -48,7 +47,6 @@ var animationB = anime({
     loop: false,
     autoplay: false,
     background: "#FFDC00",
-    translateY: -180,
 });
 
 var animationC = anime({
@@ -149,7 +147,7 @@ function requestElementUpdate() {
 var initAngle = 0;
 function onRotate(ev) {
     containerui.style.opacity = 1;
-    if(ev.type == 'rotatestart') {
+    if(ev.type == 'rotatestart' && ev.isStart) {
         initAngle = 0;
         tl
         .add({
