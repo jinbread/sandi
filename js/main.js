@@ -147,7 +147,7 @@ function requestElementUpdate() {
 var initAngle = 0;
 function onRotate(ev) {
     containerui.style.opacity = 1;
-    if(ev.type == 'rotatestart' && ev.isFirst) {
+    if(ev.type == 'rotatestart') {
         initAngle = 0;
         tl
         .add({
