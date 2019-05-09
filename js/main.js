@@ -39,6 +39,7 @@ var animationA = anime({
     loop: false,
     autoplay: false,
     background: "#FFFFFF",
+    translateY: -180,
 });
 
 var animationB = anime({
@@ -47,6 +48,7 @@ var animationB = anime({
     loop: false,
     autoplay: false,
     background: "#FFDC00",
+    translateY: -180,
 });
 
 var animationC = anime({
