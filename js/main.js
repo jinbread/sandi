@@ -201,11 +201,11 @@ function onRotate(ev) {
     
 
     changingAngle = ev.rotation;
-    deltaAngle = initialAngle - changingAngle;
+    deltaAngle = changingAngle - initialAngle;
     
     el.textContent = deltaAngle;
     
-    if (transform.angle < 30 && transform.angle > - 30) {
+    if (deltaAngle < 30) {
         animationB.play();
         animationA.pause();
         animationD.play();
