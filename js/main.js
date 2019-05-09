@@ -165,6 +165,12 @@ function onRotate(ev) {
         })
         .add({
             targets: '#deactivate',
+            opacity: 0,
+            loop: false,
+            translateY: 180,
+        })
+        .add({
+            targets: '#deactivate',
             opacity: 1,
             loop: false,
             translateY: -180,
